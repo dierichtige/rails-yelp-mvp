@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+ .title {
+  background-color: #F8F8F8;
+  color: rgb(118, 118, 118);
+  border: 1px solid #E7E7E7;
+  margin-bottom: 1rem;
+ }
+
+ #left-title a {
+  font-size: 1.2rem;
+  color: inherit;
+  margin-bottom: 0;
+ }
+
+ #left-title a:hover, #right-title a:hover {
+  color: rgb(80,80,80);
+ }
+
+ #right-title a {
+  font-size: 0.88rem;
+  color: inherit;
+  margin-bottom: 0;
+ }
+
+ p#left-title, p#right-title {
+  margin-bottom: 0;
+ }
+
+ a {
+  text-decoration: none;
+}
+
+.page-container {
+  margin: 1rem 2rem;
+}
+
+#faded {
+  color:rgb(209, 209, 209);
+}

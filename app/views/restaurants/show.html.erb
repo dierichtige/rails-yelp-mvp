@@ -1,0 +1,33 @@
+<div class="border-bottom mb-3">
+  <div class="d-flex justify-content-between py-3">
+    <h1><%= @restaurant.name %></h1>
+    <%= link_to new_restaurant_review_path(@restaurant) do %>
+      Add a a review <i class="fas fa-pencil-alt"></i>
+    <% end %>
+  </div>
+  <p><strong>Category:</strong> <%= "#{@restaurant.category.capitalize}" %></p>
+  <p><strong>Address:</strong> <%= "#{@restaurant.address}" %></p>
+  <p><strong>Phone Number:</strong> <%= " #{@restaurant.phone_number}" %></p>
+</div>
+
+<% unless @restaurant.reviews.empty? %>
+  <p><strong>Reviews</strong></p>
+  <ul class="list-unstyled">
+      <% @restaurant.reviews.each do |review| %>
+        <div class="review my-3">
+          <span>
+            <% review.rating.to_i.times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+          </span>
+          <span id="faded">
+            <% (5 - review.rating.to_i).times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+          </span>
+          <li><%= review.content %></li>
+        </div>
+    <% end %>
+  </ul>
+<% end %>
+<br>

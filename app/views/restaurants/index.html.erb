@@ -1,0 +1,7 @@
+<div class="text-center">
+  <ol class="list-unstyled">
+    <% @restaurants.each do |restaurant| %>
+      <li class="py-1"><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <% end %>
+  </ul>
+</div>
