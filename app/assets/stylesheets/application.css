@@ -52,3 +52,9 @@
 #faded {
   color:rgb(209, 209, 209);
 }
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}

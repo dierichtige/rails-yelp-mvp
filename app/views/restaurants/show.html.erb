@@ -1,13 +1,22 @@
-<div class="border-bottom mb-3">
+<div class="border-bottom mb-3" data-controller="review">
   <div class="d-flex justify-content-between py-3">
     <h1><%= @restaurant.name %></h1>
-    <%= link_to new_restaurant_review_path(@restaurant) do %>
-      Add a a review <i class="fas fa-pencil-alt"></i>
-    <% end %>
+    <a href="" id="add-review" data-action="click->review#showReview">Add a review <i class="fas fa-pencil-alt"></i></a>
   </div>
-  <p><strong>Category:</strong> <%= "#{@restaurant.category.capitalize}" %></p>
-  <p><strong>Address:</strong> <%= "#{@restaurant.address}" %></p>
-  <p><strong>Phone Number:</strong> <%= " #{@restaurant.phone_number}" %></p>
+  <div class="cards">
+    <div>
+      <p><strong>Category:</strong> <%= "#{@restaurant.category.capitalize}" %></p>
+      <p><strong>Address:</strong> <%= "#{@restaurant.address}" %></p>
+      <p><strong>Phone Number:</strong> <%= " #{@restaurant.phone_number}" %></p>
+    </div>
+    <div class="pb-4 d-none" data-review-target="form">
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :content %>
+        <%= f.submit "Submit review", class: "btn btn-primary", "data-action" => "click->review#submit" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <% unless @restaurant.reviews.empty? %>
